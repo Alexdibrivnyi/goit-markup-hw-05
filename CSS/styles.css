@@ -2,6 +2,7 @@
 
 .root {
   --main-color: #ffffff;
+  --main-cub: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -78,6 +79,7 @@ ol {
 }
 
 .header-link {
+  /* position: relative; */
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -85,6 +87,35 @@ ol {
   color: #212121;
   margin-top: 32px;
   margin-bottom: 32px;
+  /* display: block; */
+}
+
+.header-link::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 100%;
+height: 4px;
+bottom: 0;
+left: 0;
+background-color: #2196F3;
+border-radius: 2px;
+margin-bottom: -1px;
+transform: scaleX(0);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-link:hover::after,
+.header-link:focus::after {
+  /* display: block; */
+  /* opacity: 1; */
+  transform: scaleX(1);
+}
+
+
+.header-link:hover,
+.header-link:focus {
+  color: #2196f3;
 }
 
 .header-mail {
@@ -152,22 +183,7 @@ fill: #757575;
   display: flex;
 }
 
-.header-link:hover::after {
-  content: " ";
-  position: absolute;
-  width: 100%;
-height: 4px;
-bottom: 0;
-left: 0;
-background-color: #2196F3;
-border-radius: 2px;
-margin-bottom: -1px;
-}
 
-.header-link:hover,
-.header-link:focus {
-  color: #2196f3;
-}
 
 
 
@@ -294,6 +310,32 @@ margin-bottom: -1px;
   padding-bottom: 94px;
 }
 
+.doing-thumb {
+  position: relative;
+}
+
+.doing-thumb-item {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  display: flex;
+position: absolute;
+background-color: rgba(47, 48, 58, 0.8);
+width: 100%;
+height: 70px;
+/* padding-top: 27px;
+padding-bottom: 27px; */
+justify-content: center;
+align-items: center;
+bottom: 0;
+right: 0;
+/* outline: 2px solid red; */
+}
+
 /*-----------------TEAM-------------*/
 
 .team-div {
@@ -416,9 +458,36 @@ margin-bottom: -1px;
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb-item {
+position:absolute;
+top: 0;
+left: 0;
+font-weight: 400;
+font-size: 18px;
+line-height: 156%;
+letter-spacing: 0.03em;
+color: #FFFFFF;
+background-color: rgba(33, 150, 243, 0.9);
+padding: 63px 24px;
+height: 100%;
+transform: translateY(101%);
+transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
 .item-list {
   background: #ffffff;
   flex-basis: calc(100% / 3 - 30px);
+}
+
+.item-list:hover .thumb-item,
+.item-list:focus .thumb-item {
+transform: translateX(0);
 }
 
 .all {
